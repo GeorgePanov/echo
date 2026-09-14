@@ -6,4 +6,7 @@ import { defineConfig } from "vite";
 export default defineConfig({
   plugins: [react(), babel({ presets: [reactCompilerPreset()] })],
   base: "/hbm/",
+  server: {
+    port: 3000
+  }
 });
