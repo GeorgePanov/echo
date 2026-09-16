@@ -7,6 +7,7 @@ export default defineConfig({
   plugins: [react(), babel({ presets: [reactCompilerPreset()] })],
   base: '/hbm/',
   server: {
+    host: true,
     port: 3000,
   },
 });
