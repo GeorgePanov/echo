@@ -1,11 +1,13 @@
+import type { FC } from 'react';
+
 import { Email, FolderCopy } from '@mui/icons-material';
+import PersonIcon from '@mui/icons-material/Person';
 import {
   Box,
   BottomNavigation,
   BottomNavigationAction,
   Badge,
 } from '@mui/material';
-import type { FC } from 'react';
 import {
   BrowserRouter,
   Navigate,
@@ -14,14 +16,8 @@ import {
   useLocation,
   useNavigate,
 } from 'react-router';
-import PersonIcon from '@mui/icons-material/Person';
 
-enum ROUTE_PATH {
-  MAIN = '/hbm',
-  EMAIL = '/hbm/email/',
-  CASE = '/hbm/case/',
-  PROFILE = '/hbm/profile/',
-}
+import { ROUTE_PATH } from '../shared/types';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const navigate = useNavigate();
@@ -102,7 +98,7 @@ export const App: FC = () => {
       <Layout>
         <Routes>
           <Route path={ROUTE_PATH.EMAIL} element={<>email</>} />
-          {/* <Route path='/mail/:id' element={<MailView />} /> */}
+          <Route path={ROUTE_PATH.EMAIL_ID} element={<>email:id</>} />
           <Route path={ROUTE_PATH.CASE} element={<>case</>} />
           <Route path={ROUTE_PATH.PROFILE} element={<>profile</>} />
           <Route

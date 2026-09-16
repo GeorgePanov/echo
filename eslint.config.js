@@ -1,5 +1,6 @@
 import js from '@eslint/js';
 import globals from 'globals';
+import perfectionist from 'eslint-plugin-perfectionist';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
@@ -15,8 +16,30 @@ export default defineConfig([
       reactHooks.configs.flat.recommended,
       reactRefresh.configs.vite,
     ],
+    plugins: {
+      perfectionist,
+    },
     languageOptions: {
       globals: globals.browser,
+    },
+    rules: {
+      'perfectionist/sort-imports': [
+        'warn',
+        {
+          type: 'natural',
+          order: 'asc',
+          // newlinesBetween: 1,
+          groups: [
+            'type',
+            'builtin',
+            'external',
+            'internal',
+            ['parent', 'sibling', 'index'],
+            'side-effect',
+            'unknown',
+          ],
+        },
+      ],
     },
   },
 ]);
