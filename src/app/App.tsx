@@ -1,10 +1,10 @@
 import type { FC } from 'react';
 
-import { Email } from '@mui/icons-material';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router';
 
 import { AppLayout } from '~/components/AppLayout';
 import { Case } from '~/components/Case';
+import { Email } from '~/components/Email ';
 import { Profile } from '~/components/Profile';
 
 import { ROUTE_PATH } from '~/shared/types';
