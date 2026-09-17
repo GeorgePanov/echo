@@ -3,13 +3,19 @@ import type { FC } from 'react';
 import { SwipeableDrawer, Stack, Typography } from '@mui/material';
 import { green } from '@mui/material/colors';
 
+import { mocksEmails } from '~/shared/api/mocksEmails';
+
 type DrawerProps = {
   open: boolean;
   setOpen: (v: boolean) => void;
+  selectedEmail: string | null;
 };
 
 export const SelectedEmailDrawer: FC<DrawerProps> = (props) => {
-  const { open, setOpen } = props;
+  const { open, setOpen, selectedEmail } = props;
+
+  const { author, title, message } =
+    mocksEmails.find((e) => e.emailId === selectedEmail) || {};
 
   return (
     <SwipeableDrawer
@@ -27,7 +33,7 @@ export const SelectedEmailDrawer: FC<DrawerProps> = (props) => {
         }}
       >
         <Typography sx={{ color: green[100] }} variant='h5'>
-          Lorem ipsum dolor sit amet.
+          {title}
         </Typography>
 
         <Typography
@@ -35,12 +41,11 @@ export const SelectedEmailDrawer: FC<DrawerProps> = (props) => {
           variant='body2'
           color='text.secondary'
         >
-          От: Heinrich
+          От: {author}
         </Typography>
 
         <Typography sx={{ color: green[200] }} variant='body1'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus,
-          doloribus?
+          {message}
         </Typography>
       </Stack>
     </SwipeableDrawer>
