@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import { type FC, useState } from 'react';
 
-import { stringAvatar } from '../shared/stringAvatar';
+import { stringAvatar } from '~/shared/stringAvatar';
 
 export const EmailComponent: FC = () => {
   const [open, setOpen] = useState(false);

@@ -28,15 +28,33 @@ export default defineConfig([
         {
           type: 'natural',
           order: 'asc',
-          // newlinesBetween: 1,
+
           groups: [
             'type',
             'builtin',
             'external',
+            'app',
+            'components',
+            'shared',
             'internal',
             ['parent', 'sibling', 'index'],
             'side-effect',
             'unknown',
+          ],
+
+          customGroups: [
+            {
+              groupName: 'app',
+              elementNamePattern: '~/app/',
+            },
+            {
+              groupName: 'components',
+              elementNamePattern: '~/components/',
+            },
+            {
+              groupName: 'shared',
+              elementNamePattern: '~/shared/',
+            },
           ],
         },
       ],

@@ -1,3 +1,5 @@
+import path from 'path';
+
 import babel from '@rolldown/plugin-babel';
 import react, { reactCompilerPreset } from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
@@ -9,5 +11,11 @@ export default defineConfig({
   server: {
     host: true,
     port: 3000,
+  },
+
+  resolve: {
+    alias: {
+      '~': path.resolve(import.meta.dirname, './src/'),
+    },
   },
 });

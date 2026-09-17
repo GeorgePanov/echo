@@ -2,9 +2,10 @@ import type { FC } from 'react';
 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router';
 
-import { AppLayout } from '../components/AppLayout';
-import { EmailComponent } from '../components/EmailComponent';
-import { ROUTE_PATH } from '../shared/types';
+import { AppLayout } from '~/components/AppLayout';
+import { EmailComponent } from '~/components/EmailComponent';
+
+import { ROUTE_PATH } from '~/shared/types';
 
 export const App: FC = () => {
   return (

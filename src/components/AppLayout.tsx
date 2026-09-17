@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import { useNavigate, useLocation, Outlet } from 'react-router';
 
-import { ROUTE_PATH } from '../shared/types';
+import { ROUTE_PATH } from '~/shared/types';
 
 export const AppLayout: React.FC = () => {
   const navigate = useNavigate();
