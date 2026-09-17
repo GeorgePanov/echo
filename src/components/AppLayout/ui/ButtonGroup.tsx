@@ -2,6 +2,7 @@ import type { FC } from 'react';
 
 import { Email, FolderCopy, Person } from '@mui/icons-material';
 import { Stack, ToggleButton, ToggleButtonGroup } from '@mui/material';
+import { green } from '@mui/material/colors';
 import { useLocation, useNavigate } from 'react-router';
 
 import { ROUTE_PATH } from '~/shared/types';
@@ -14,12 +15,12 @@ const buttonSx = {
   transition: 'all 0.3s ease',
 
   '&.Mui-selected': {
-    backgroundColor: 'primary.main',
-    color: 'primary.contrastText',
+    backgroundColor: green[800],
+    color: green[100],
   },
 
   '&.Mui-selected:hover': {
-    backgroundColor: 'primary.dark',
+    backgroundColor: green[800],
   },
 };
 
@@ -34,12 +35,12 @@ export const ButtonGroup: FC = () => {
       onChange={(_, value) => value && navigate(value)}
       sx={{
         position: 'fixed',
-        bottom: '0.5rem',
+        bottom: '2rem',
         left: '50%',
         transform: 'translateX(-50%)',
         borderRadius: '2rem',
 
-        bgcolor: 'background.paper',
+        bgcolor: green[700],
 
         '& .MuiToggleButton-root': buttonSx,
       }}
@@ -54,7 +55,7 @@ export const ButtonGroup: FC = () => {
           padding: '10px',
         }}
       >
-        <ToggleButton value={ROUTE_PATH.EMAIL}>
+        <ToggleButton value={ROUTE_PATH.MAIN}>
           <Email />
         </ToggleButton>
 
