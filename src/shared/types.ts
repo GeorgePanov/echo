@@ -1,5 +1,5 @@
 export enum ROUTE_PATH {
-  MAIN = '/echo',
+  MAIN = '/echo/',
   // EMAIL = '/echo/email/',
   // EMAIL_ID = '/echo/email/:id/',
   CASE = '/echo/case/',
