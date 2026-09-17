@@ -16,7 +16,7 @@ import { stringAvatar } from '~/shared/stringAvatar';
 
 import { InputClueButton, SelectedEmailDrawer } from './ui';
 
-export const EmailComponent: FC = () => {
+export const Email: FC = () => {
   const [open, setOpen] = useState(false);
 
   return (
