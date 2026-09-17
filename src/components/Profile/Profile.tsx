@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 
-import { Divider, Stack, Typography } from '@mui/material';
+import { Face4 } from '@mui/icons-material';
+import { Box, Divider, Stack, Typography } from '@mui/material';
 import { green } from '@mui/material/colors';
 
 export const Profile: FC = () => {
@@ -24,6 +25,10 @@ export const Profile: FC = () => {
           borderRadius: '1rem',
         }}
       >
+        <Box sx={{ m: '1rem 0', display: 'flex', justifyContent: 'center' }}>
+          <Face4 sx={{ fontSize: '7rem', color: green[200] }} />
+        </Box>
+
         <Typography variant='body1' sx={{ color: green[100] }}>
           Должность: Главный следователь
         </Typography>
