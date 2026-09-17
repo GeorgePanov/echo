@@ -55,7 +55,7 @@ export const ButtonGroup: FC = () => {
           padding: '10px',
         }}
       >
-        <ToggleButton value={ROUTE_PATH.EMAIL}>
+        <ToggleButton value={ROUTE_PATH.MAIN}>
           <Email />
         </ToggleButton>
 

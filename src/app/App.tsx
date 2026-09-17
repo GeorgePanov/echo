@@ -12,12 +12,12 @@ export const App: FC = () => {
     <BrowserRouter>
       <Routes>
         <Route element={<AppLayout />}>
-          <Route path={ROUTE_PATH.EMAIL} element={<EmailComponent />} />
+          <Route path={ROUTE_PATH.MAIN} element={<EmailComponent />} />
           <Route path={ROUTE_PATH.CASE} element={<>case</>} />
           <Route path={ROUTE_PATH.PROFILE} element={<>profile</>} />
         </Route>
 
-        <Route path='*' element={<Navigate to={ROUTE_PATH.EMAIL} replace />} />
+        <Route path='*' element={<Navigate to={ROUTE_PATH.MAIN} replace />} />
       </Routes>
     </BrowserRouter>
   );
