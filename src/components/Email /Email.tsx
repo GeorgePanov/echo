@@ -6,6 +6,12 @@ import { EmailList, InputClueButton, SelectedEmailDrawer } from './ui';
 
 export const Email: FC = () => {
   const [open, setOpen] = useState(false);
+  const [selectedEmail, setSelectedEmail] = useState<string | null>(null);
+
+  const handleSelectEmail = (id: string) => {
+    setSelectedEmail(id);
+    setOpen(true);
+  };
 
   return (
     <Stack>
@@ -18,11 +24,15 @@ export const Email: FC = () => {
         </Typography>
       </Stack>
 
-      <EmailList setOpen={setOpen} />
+      <EmailList handleSelectEmail={handleSelectEmail} />
 
       <InputClueButton />
 
-      <SelectedEmailDrawer open={open} setOpen={setOpen} />
+      <SelectedEmailDrawer
+        selectedEmail={selectedEmail}
+        open={open}
+        setOpen={setOpen}
+      />
     </Stack>
   );
 };

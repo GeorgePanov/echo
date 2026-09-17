@@ -16,15 +16,15 @@ import { mocksEmails } from '~/shared/api/mocksEmails';
 import { stringAvatar } from '~/shared/stringAvatar';
 
 type EmailListProps = {
-  setOpen: (v: boolean) => void;
+  handleSelectEmail: (v: string) => void;
 };
 
 export const EmailList: FC<EmailListProps> = (props) => {
-  const { setOpen } = props;
+  const { handleSelectEmail } = props;
 
   return (
     <List sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-      {mocksEmails.map(({ author, title, message, isRead }) => (
+      {mocksEmails.map(({ author, title, message, isRead, emailId }) => (
         <ListItem key={title} disablePadding>
           <ListItemButton
             sx={{
@@ -35,7 +35,7 @@ export const EmailList: FC<EmailListProps> = (props) => {
                 backgroundColor: green[800],
               },
             }}
-            onClick={() => setOpen(true)}
+            onClick={() => handleSelectEmail(emailId)}
           >
             <ListItemAvatar>
               <Avatar {...stringAvatar(author)} />
