@@ -8,12 +8,13 @@ import {
   Avatar,
   ListItemText,
   Box,
-  SwipeableDrawer,
 } from '@mui/material';
 import { green } from '@mui/material/colors';
 import { type FC, useState } from 'react';
 
 import { stringAvatar } from '~/shared/stringAvatar';
+
+import { Drawer } from './ui/Drawer';
 
 export const EmailComponent: FC = () => {
   const [open, setOpen] = useState(false);
@@ -92,38 +93,7 @@ export const EmailComponent: FC = () => {
         ))}
       </List>
 
-      <SwipeableDrawer
-        anchor='right'
-        open={open}
-        onClose={() => setOpen(false)}
-        onOpen={() => setOpen(true)}
-      >
-        <Stack
-          spacing={2}
-          sx={{
-            height: '100%',
-            padding: 3,
-            backgroundColor: green[900],
-          }}
-        >
-          <Typography sx={{ color: green[100] }} variant='h5'>
-            Lorem ipsum dolor sit amet.
-          </Typography>
-
-          <Typography
-            sx={{ color: green[200] }}
-            variant='body2'
-            color='text.secondary'
-          >
-            От: Heinrich
-          </Typography>
-
-          <Typography sx={{ color: green[200] }} variant='body1'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus,
-            doloribus?
-          </Typography>
-        </Stack>
-      </SwipeableDrawer>
+      <Drawer open={open} setOpen={setOpen} />
     </Stack>
   );
 };
