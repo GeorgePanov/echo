@@ -8,7 +8,7 @@ type DrawerProps = {
   setOpen: (v: boolean) => void;
 };
 
-export const Drawer: FC<DrawerProps> = (props) => {
+export const SelectedEmailDrawer: FC<DrawerProps> = (props) => {
   const { open, setOpen } = props;
 
   return (

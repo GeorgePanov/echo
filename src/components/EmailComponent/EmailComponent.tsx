@@ -14,7 +14,7 @@ import { type FC, useState } from 'react';
 
 import { stringAvatar } from '~/shared/stringAvatar';
 
-import { Drawer } from './ui/Drawer';
+import { InputClueButton, SelectedEmailDrawer } from './ui';
 
 export const EmailComponent: FC = () => {
   const [open, setOpen] = useState(false);
@@ -93,7 +93,9 @@ export const EmailComponent: FC = () => {
         ))}
       </List>
 
-      <Drawer open={open} setOpen={setOpen} />
+      <InputClueButton />
+
+      <SelectedEmailDrawer open={open} setOpen={setOpen} />
     </Stack>
   );
 };
