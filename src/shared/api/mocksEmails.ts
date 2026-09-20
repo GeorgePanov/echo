@@ -1,12 +1,12 @@
-type mocksEmailsType = {
+export type mocksEmailsType = {
   emailId: string;
   isRead: boolean;
   title: string;
   author: string;
   message: string;
-}[];
+};
 
-export const mocksEmails: mocksEmailsType = [
+export const mocksEmails: mocksEmailsType[] = [
   {
     emailId: '12',
     isRead: true,
