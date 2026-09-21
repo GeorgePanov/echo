@@ -4,18 +4,19 @@ import { green } from '@mui/material/colors';
 import { type FC } from 'react';
 
 import { mocksEmails } from '~/shared/api/mocksEmails';
+import type { emailType } from '~/shared/types';
 
 type DrawerProps = {
   open: boolean;
   setOpen: (v: boolean) => void;
-  selectedEmail: string | null;
+  selectedEmailId: emailType['emailId'] | null;
 };
 
 export const SelectedEmailDrawer: FC<DrawerProps> = (props) => {
-  const { open, setOpen, selectedEmail } = props;
+  const { open, setOpen, selectedEmailId } = props;
 
   const { author, title, message } =
-    mocksEmails.find((e) => e.emailId === selectedEmail) || {};
+    mocksEmails.find((e) => e.emailId === selectedEmailId) || {};
 
   return (
     <SwipeableDrawer

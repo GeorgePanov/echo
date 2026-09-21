@@ -1,13 +1,7 @@
 import type { FC } from 'react';
 
 import { Email, FolderCopy, Person } from '@mui/icons-material';
-import {
-  Badge,
-  IconButton,
-  Stack,
-  ToggleButton,
-  ToggleButtonGroup,
-} from '@mui/material';
+import { Badge, Stack, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { green } from '@mui/material/colors';
 import { useLocation, useNavigate } from 'react-router';
 

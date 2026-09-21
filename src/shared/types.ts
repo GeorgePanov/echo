@@ -5,3 +5,11 @@ export enum ROUTE_PATH {
   CASE = '/echo/case/',
   PROFILE = '/echo/profile/',
 }
+
+export type emailType = {
+  emailId: number;
+  isRead: boolean;
+  title: string;
+  author: string;
+  message: string;
+};

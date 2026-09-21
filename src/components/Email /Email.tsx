@@ -2,14 +2,18 @@ import { Stack, Typography } from '@mui/material';
 import { green } from '@mui/material/colors';
 import { type FC, useState } from 'react';
 
+import type { emailType } from '~/shared/types';
+
 import { EmailList, InputClueButton, SelectedEmailDrawer } from './ui';
 
 export const Email: FC = () => {
   const [open, setOpen] = useState(false);
-  const [selectedEmail, setSelectedEmail] = useState<string | null>(null);
+  const [selectedEmailId, setSelectedEmailId] = useState<
+    emailType['emailId'] | null
+  >(null);
 
-  const handleSelectEmail = (id: string) => {
-    setSelectedEmail(id);
+  const handleSelectEmail = (id: number) => {
+    setSelectedEmailId(id);
     setOpen(true);
   };
 
@@ -29,7 +33,7 @@ export const Email: FC = () => {
       <InputClueButton />
 
       <SelectedEmailDrawer
-        selectedEmail={selectedEmail}
+        selectedEmailId={selectedEmailId}
         open={open}
         setOpen={setOpen}
       />

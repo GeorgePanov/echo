@@ -1,14 +1,8 @@
-export type mocksEmailsType = {
-  emailId: string;
-  isRead: boolean;
-  title: string;
-  author: string;
-  message: string;
-};
+import type { emailType } from '../types';
 
-export const mocksEmails: mocksEmailsType[] = [
+export const mocksEmails: emailType[] = [
   {
-    emailId: '12',
+    emailId: 12,
     isRead: true,
     title: 'Дело №047: «Исчезнувший портфель»',
     author: 'Отдел расследований',
@@ -16,7 +10,7 @@ export const mocksEmails: mocksEmailsType[] = [
       'Дело закрыто. Портфель найден в кабинете самого заявителя. Следствие установило, что он забыл, куда его положил.',
   },
   {
-    emailId: '11',
+    emailId: 11,
     isRead: true,
     title: 'Кто опять оставил записку на доске?',
     author: 'Марина К.',
@@ -24,7 +18,7 @@ export const mocksEmails: mocksEmailsType[] = [
       'Коллеги, если это очередная шутка про «великого сыщика», то хотя бы уберите записку до прихода начальника.',
   },
   {
-    emailId: '10',
+    emailId: 10,
     isRead: true,
     title: 'Новости отдела за неделю',
     author: 'Секретарь',
@@ -32,7 +26,7 @@ export const mocksEmails: mocksEmailsType[] = [
       'Три закрытых дела, два новых сотрудника и одна загадочная коробка без обратного адреса. Коробку пока не трогать.',
   },
   {
-    emailId: '09',
+    emailId: 9,
     isRead: true,
     title: 'Дело №039: «Три часа ночи»',
     author: 'Архив',
@@ -40,7 +34,7 @@ export const mocksEmails: mocksEmailsType[] = [
       'Заявитель утверждал, что каждую ночь ровно в 03:00 кто-то звонит ему в дверь. Камера показала кота соседки.',
   },
   {
-    emailId: '08',
+    emailId: 8,
     isRead: true,
     title: 'Сплетни из архива',
     author: 'Анонимный отправитель',
@@ -48,7 +42,7 @@ export const mocksEmails: mocksEmailsType[] = [
       'Говорят, старший инспектор снова нашёл улику там, где её никто даже не искал. И да, он опять сделал вид, что так и планировал.',
   },
   {
-    emailId: '07',
+    emailId: 7,
     isRead: true,
     title: 'Новая система хранения улик',
     author: 'Начальник отдела',
@@ -56,7 +50,7 @@ export const mocksEmails: mocksEmailsType[] = [
       'С понедельника все материалы складываем строго по номерам дел. Надписи «очень важное», «не открывать» и «разберусь позже» больше не считаются системой классификации.',
   },
   {
-    emailId: '06',
+    emailId: 6,
     isRead: true,
     title: 'Дело №031: «Пропавший ключ»',
     author: 'Отдел расследований',
@@ -64,7 +58,7 @@ export const mocksEmails: mocksEmailsType[] = [
       'Ключ найден спустя четыре дня. Всё это время он находился в кармане куртки следователя, который занимался расследованием.',
   },
   {
-    emailId: '05',
+    emailId: 5,
     isRead: true,
     title: 'Кто-то снова забрал мой кофе',
     author: 'Илья С.',
@@ -72,7 +66,7 @@ export const mocksEmails: mocksEmailsType[] = [
       'Последнее предупреждение. Если человек, который каждый день берёт кофе из холодильника, не сознается добровольно, придётся заводить отдельное дело.',
   },
   {
-    emailId: '04',
+    emailId: 4,
     isRead: true,
     title: 'Странная находка в архиве',
     author: 'Марина К.',
@@ -80,7 +74,7 @@ export const mocksEmails: mocksEmailsType[] = [
       'Сегодня при разборе старых материалов обнаружен конверт без номера дела. Внутри только фотография и дата. Передала начальнику.',
   },
   {
-    emailId: '02',
+    emailId: 3,
     isRead: true,
     title: 'Дело №026: «Красный конверт»',
     author: 'Архив',
@@ -88,7 +82,7 @@ export const mocksEmails: mocksEmailsType[] = [
       'Расследование завершено. Личность отправителя установлена. Причина отправки конверта так и осталась неизвестной.',
   },
   {
-    emailId: '02',
+    emailId: 2,
     isRead: true,
     title: 'Поздравляем с закрытием дела №018',
     author: 'Коллеги',
@@ -96,7 +90,7 @@ export const mocksEmails: mocksEmailsType[] = [
       'Редкий случай, когда все улики сошлись с первой попытки. Предлагаем отметить это событие и не пытаться повторить.',
   },
   {
-    emailId: '01',
+    emailId: 1,
     isRead: true,
     title: 'Напоминание для всех сотрудников',
     author: 'Начальник отдела',

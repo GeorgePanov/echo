@@ -14,9 +14,10 @@ import { green } from '@mui/material/colors';
 
 import { mocksEmails } from '~/shared/api/mocksEmails';
 import { stringAvatar } from '~/shared/stringAvatar';
+import type { emailType } from '~/shared/types';
 
 type EmailListProps = {
-  handleSelectEmail: (v: string) => void;
+  handleSelectEmail: (v: emailType['emailId']) => void;
 };
 
 export const EmailList: FC<EmailListProps> = (props) => {
