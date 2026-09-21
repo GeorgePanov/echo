@@ -16,16 +16,32 @@ import { useGame } from '~/app/context/GameContext';
 
 export const InputClueButton: FC = () => {
   const [open, setOpen] = useState(false);
-  const { unlockEmail } = useGame();
+  const { unlockEmail, resetGame } = useGame();
 
   const handleInputClue = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
-    const clue = formData.get('clue')?.toString().trim().toUpperCase();
+    const clue = formData.get('clue')?.toString().trim().toLowerCase();
 
-    if (clue === 'РОТДЕВЯТЬ') {
+    if (clue === 'reset') {
+      resetGame();
+    }
+
+    if (clue === 'ротдевять') {
       unlockEmail(13);
+    }
+
+    if (clue === '77 4 5 4 9999') {
+      unlockEmail(14);
+    }
+
+    if (clue === '56.739118, 38.856924') {
+      unlockEmail(15);
+    }
+
+    if (clue === 'плещеевская улица 24') {
+      unlockEmail(16);
     }
 
     setOpen(false);

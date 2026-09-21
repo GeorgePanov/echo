@@ -65,8 +65,8 @@ export const GameProvider: FC<{ children: ReactNode }> = ({ children }) => {
   };
 
   const resetGame = () => {
+    localStorage.clear();
     setGameState(initialGameState);
-    localStorage.removeItem(STORAGE_KEY);
   };
 
   return (
