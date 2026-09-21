@@ -12,8 +12,25 @@ import {
 import { green } from '@mui/material/colors';
 import { useState, type FC } from 'react';
 
+import { useGame } from '~/app/context/GameContext';
+
 export const InputClueButton: FC = () => {
   const [open, setOpen] = useState(false);
+  const { unlockEmail } = useGame();
+
+  const handleInputClue = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const clue = formData.get('clue')?.toString().trim().toUpperCase();
+
+    if (clue === 'РОТДЕВЯТЬ') {
+      unlockEmail(13);
+    }
+
+    setOpen(false);
+  };
+
   return (
     <>
       <Fab
@@ -42,7 +59,7 @@ export const InputClueButton: FC = () => {
             улику в материалы дела.
           </DialogContentText>
 
-          <form onSubmit={() => setOpen(false)} id='clue-form'>
+          <form onSubmit={handleInputClue} id='clue-form'>
             <TextField
               color='success'
               autoFocus
