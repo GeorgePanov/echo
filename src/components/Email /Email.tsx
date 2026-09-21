@@ -2,6 +2,8 @@ import { Stack, Typography } from '@mui/material';
 import { green } from '@mui/material/colors';
 import { type FC, useState } from 'react';
 
+import { useGame } from '~/app/context/GameContext';
+
 import type { emailType } from '~/shared/types';
 
 import { EmailList, InputClueButton, SelectedEmailDrawer } from './ui';
@@ -12,9 +14,12 @@ export const Email: FC = () => {
     emailType['emailId'] | null
   >(null);
 
+  const { markEmailAsRead } = useGame();
+
   const handleSelectEmail = (id: number) => {
     setSelectedEmailId(id);
     setOpen(true);
+    markEmailAsRead(id);
   };
 
   return (

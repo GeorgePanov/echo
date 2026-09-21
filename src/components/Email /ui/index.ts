@@ -1,3 +1,3 @@
 export * from './InputClueButton';
 export * from './SelectedEmailDrawer';
-export * from './EmailList';
+export * from './EmailList/EmailList';
