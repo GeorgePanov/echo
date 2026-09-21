@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import { green } from '@mui/material/colors';
 
-import { mocksEmails } from '~/shared/api/mocksEmails';
+import { useGetEmails } from '~/shared/hooks/useGetEmails';
 import { stringAvatar } from '~/shared/stringAvatar';
 import type { emailType } from '~/shared/types';
 
@@ -23,9 +23,11 @@ type EmailListProps = {
 export const EmailList: FC<EmailListProps> = (props) => {
   const { handleSelectEmail } = props;
 
+  const { filteredEmails } = useGetEmails();
+
   return (
     <List sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-      {mocksEmails.map(({ author, title, message, isRead, emailId }) => (
+      {filteredEmails.map(({ author, title, message, isRead, emailId }) => (
         <ListItem key={title} disablePadding>
           <ListItemButton
             sx={{
