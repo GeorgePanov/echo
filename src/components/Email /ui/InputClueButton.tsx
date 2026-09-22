@@ -33,15 +33,15 @@ export const InputClueButton: FC = () => {
     }
 
     if (clue === '77 4 5 4 9999') {
-      unlockEmail(14);
-    }
-
-    if (clue === '56.739118, 38.856924') {
       unlockEmail(15);
     }
 
-    if (clue === 'плещеевская улица 24') {
+    if (clue === '56,739118, 38,856924') {
       unlockEmail(16);
+    }
+
+    if (clue === 'плещеевская улица 24') {
+      unlockEmail(17);
     }
 
     setOpen(false);
