@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 
 import { Email, FolderCopy, Person } from '@mui/icons-material';
-import { Stack, ToggleButton, ToggleButtonGroup } from '@mui/material';
+import { Badge, Stack, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { green } from '@mui/material/colors';
 import { useLocation, useNavigate } from 'react-router';
 
@@ -56,7 +56,16 @@ export const ButtonGroup: FC = () => {
         }}
       >
         <ToggleButton value={ROUTE_PATH.MAIN}>
-          <Email />
+          <Badge
+            // badgeContent={true}
+            sx={{
+              '& .MuiBadge-badge': {
+                backgroundColor: green[400],
+              },
+            }}
+          >
+            <Email />
+          </Badge>
         </ToggleButton>
 
         <ToggleButton value={ROUTE_PATH.CASE}>
