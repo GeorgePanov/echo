@@ -14,6 +14,8 @@ import { useState, type FC } from 'react';
 
 import { useGame } from '~/app/context/GameContext';
 
+import { CLUE_SOLVED_KEY } from '~/shared/types';
+
 export const InputClueButton: FC = () => {
   const [open, setOpen] = useState(false);
   const { unlockEmail, resetGame } = useGame();
@@ -36,12 +38,18 @@ export const InputClueButton: FC = () => {
       unlockEmail(15);
     }
 
-    if (clue === '56,739118, 38,856924') {
+    if (
+      clue === '56,739118 ; 38,856924' ||
+      clue === '56,739118; 38,856924' ||
+      clue === '56.739118 ; 38.856924' ||
+      clue === '56.739118; 38.856924'
+    ) {
       unlockEmail(16);
     }
 
-    if (clue === 'плещеевская улица 24') {
+    if (clue === 'плещеевская улица 24' || clue === 'плещеевская улица, 24') {
       unlockEmail(17);
+      localStorage.setItem(CLUE_SOLVED_KEY, Date.now().toString());
     }
 
     setOpen(false);
@@ -77,14 +85,15 @@ export const InputClueButton: FC = () => {
 
           <form onSubmit={handleInputClue} id='clue-form'>
             <TextField
-              color='success'
               autoFocus
+              fullWidth
               required
+              autoComplete='off'
+              color='success'
               id='clue'
               name='clue'
               label='Расшифрованная улика'
               type='text'
-              fullWidth
               variant='standard'
             />
           </form>
