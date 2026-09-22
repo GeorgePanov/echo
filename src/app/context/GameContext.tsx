@@ -25,8 +25,8 @@ type GameContextType = {
 const STORAGE_KEY = 'detective-game';
 
 const initialGameState: GameState = {
-  lockedEmails: [13, 14, 15],
-  unReadEmails: [13, 14, 15],
+  lockedEmails: [13, 14, 15, 16, 17, 18],
+  unReadEmails: [13, 14, 15, 16, 17, 18],
 };
 
 const GameContext = createContext<GameContextType | null>(null);
@@ -65,8 +65,8 @@ export const GameProvider: FC<{ children: ReactNode }> = ({ children }) => {
   };
 
   const resetGame = () => {
+    localStorage.clear();
     setGameState(initialGameState);
-    localStorage.removeItem(STORAGE_KEY);
   };
 
   return (

@@ -12,8 +12,49 @@ import {
 import { green } from '@mui/material/colors';
 import { useState, type FC } from 'react';
 
+import { useGame } from '~/app/context/GameContext';
+
+import { CLUE_SOLVED_KEY } from '~/shared/types';
+
 export const InputClueButton: FC = () => {
   const [open, setOpen] = useState(false);
+  const { unlockEmail, resetGame } = useGame();
+
+  const handleInputClue = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const clue = formData.get('clue')?.toString().trim().toLowerCase();
+
+    if (clue === 'reset') {
+      resetGame();
+    }
+
+    if (clue === 'ротдевять') {
+      unlockEmail(13);
+    }
+
+    if (clue === '77 4 5 4 9999') {
+      unlockEmail(15);
+    }
+
+    if (
+      clue === '56,739118 ; 38,856924' ||
+      clue === '56,739118; 38,856924' ||
+      clue === '56.739118 ; 38.856924' ||
+      clue === '56.739118; 38.856924'
+    ) {
+      unlockEmail(16);
+    }
+
+    if (clue === 'плещеевская улица 24' || clue === 'плещеевская улица, 24') {
+      unlockEmail(17);
+      localStorage.setItem(CLUE_SOLVED_KEY, Date.now().toString());
+    }
+
+    setOpen(false);
+  };
+
   return (
     <>
       <Fab
@@ -42,16 +83,17 @@ export const InputClueButton: FC = () => {
             улику в материалы дела.
           </DialogContentText>
 
-          <form onSubmit={() => setOpen(false)} id='clue-form'>
+          <form onSubmit={handleInputClue} id='clue-form'>
             <TextField
-              color='success'
               autoFocus
+              fullWidth
               required
+              autoComplete='off'
+              color='success'
               id='clue'
               name='clue'
               label='Расшифрованная улика'
               type='text'
-              fullWidth
               variant='standard'
             />
           </form>

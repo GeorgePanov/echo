@@ -24,15 +24,17 @@ export const SelectedEmailDrawer: FC<DrawerProps> = (props) => {
       open={open}
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
+      slotProps={{
+        paper: {
+          sx: {
+            backgroundColor: green[900],
+            width: '100%',
+            maxWidth: '40rem',
+          },
+        },
+      }}
     >
-      <Stack
-        sx={{
-          height: '100%',
-          gap: '1rem',
-          padding: 3,
-          backgroundColor: green[900],
-        }}
-      >
+      <Stack sx={{ gap: '1rem', padding: 3 }}>
         <Stack
           sx={{
             display: 'flex',
@@ -66,7 +68,10 @@ export const SelectedEmailDrawer: FC<DrawerProps> = (props) => {
           От: {author}
         </Typography>
 
-        <Typography sx={{ color: green[200] }} variant='body1'>
+        <Typography
+          sx={{ color: green[200], whiteSpace: 'pre-line' }}
+          variant='body1'
+        >
           {message}
         </Typography>
       </Stack>

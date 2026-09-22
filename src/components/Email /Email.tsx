@@ -1,10 +1,10 @@
 import { Stack, Typography } from '@mui/material';
 import { green } from '@mui/material/colors';
-import { type FC, useState } from 'react';
+import { type FC, useEffect, useState } from 'react';
 
 import { useGame } from '~/app/context/GameContext';
 
-import type { emailType } from '~/shared/types';
+import { CLUE_SOLVED_KEY, type emailType } from '~/shared/types';
 
 import { EmailList, InputClueButton, SelectedEmailDrawer } from './ui';
 
@@ -14,13 +14,29 @@ export const Email: FC = () => {
     emailType['emailId'] | null
   >(null);
 
-  const { markEmailAsRead } = useGame();
+  const { unlockEmail, markEmailAsRead } = useGame();
 
   const handleSelectEmail = (id: number) => {
     setSelectedEmailId(id);
     setOpen(true);
     markEmailAsRead(id);
+
+    if (id === 13) {
+      setTimeout(() => unlockEmail(14), 5000);
+      return;
+    }
   };
+
+  useEffect(() => {
+    const solvedTime = localStorage.getItem(CLUE_SOLVED_KEY);
+    if (!solvedTime) return;
+
+    // Через 20 минут разблокировать Email
+    if (Date.now() - Number(solvedTime) >= 20 * 60 * 1000) {
+      unlockEmail(18);
+      localStorage.removeItem(CLUE_SOLVED_KEY);
+    }
+  }, [unlockEmail]);
 
   return (
     <Stack>
