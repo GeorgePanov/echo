@@ -1,4 +1,4 @@
-import { green } from '@mui/material/colors';
+import { appColors } from './colors';
 
 function stringToColor(string: string) {
   let hash = 0;
@@ -22,7 +22,8 @@ export function stringAvatar(name: string) {
   return {
     sx: {
       // bgcolor: stringToColor(name),
-      bgcolor: green[900],
+      backgroundColor: appColors.pine,
+      color: appColors.sage,
     },
     children: `${name.split(' ')[0][0]}`,
   };

@@ -1,9 +1,9 @@
 import { Stack, Typography } from '@mui/material';
-import { green } from '@mui/material/colors';
 import { type FC, useEffect, useState } from 'react';
 
 import { useGame } from '~/app/context/GameContext';
 
+import { appColors } from '~/shared/colors';
 import { CLUE_SOLVED_KEY, type emailType } from '~/shared/types';
 
 import { EmailList, InputClueButton, SelectedEmailDrawer } from './ui';
@@ -40,13 +40,9 @@ export const Email: FC = () => {
 
   return (
     <Stack>
-      <Stack spacing={1}>
-        <Typography sx={{ color: green[200] }} variant='h4'>
-          Почта
-        </Typography>
-        <Typography sx={{ color: green[200] }} variant='body1'>
-          Входящие
-        </Typography>
+      <Stack spacing={1} sx={{ color: appColors.sage }}>
+        <Typography variant='h4'>Почта</Typography>
+        <Typography variant='body1'>Входящие</Typography>
       </Stack>
 
       <EmailList handleSelectEmail={handleSelectEmail} />

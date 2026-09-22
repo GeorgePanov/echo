@@ -1,16 +1,17 @@
 import type { FC } from 'react';
 
 import { Divider, Stack, Typography } from '@mui/material';
-import { green } from '@mui/material/colors';
+
+import { appColors } from '~/shared/colors';
 
 export const Case: FC = () => {
   return (
     <Stack>
       <Stack spacing={1}>
-        <Typography sx={{ color: green[200] }} variant='h4'>
+        <Typography sx={{ color: appColors.sage }} variant='h4'>
           Дело
         </Typography>
-        <Typography sx={{ color: green[200] }} variant='body1'>
+        <Typography sx={{ color: appColors.sage }} variant='body1'>
           № 03/10
         </Typography>
       </Stack>
@@ -20,23 +21,32 @@ export const Case: FC = () => {
           mt: '0.5rem',
           padding: '1rem',
           minHeight: '50vh',
-          backgroundColor: green[800],
+          backgroundColor: appColors.sage,
           borderRadius: '1rem',
         }}
       >
-        <Typography variant='body1' sx={{ color: green[100] }}>
+        <Typography
+          variant='body1'
+          sx={{ color: appColors.pine, fontWeight: 'bold' }}
+        >
           Название: Исчезновение подарка
         </Typography>
-        <Typography variant='body1' sx={{ color: green[100] }}>
+        <Typography
+          variant='body1'
+          sx={{ color: appColors.pine, fontWeight: 'bold' }}
+        >
           Статус: Расследование продолжается
         </Typography>
 
         <Divider sx={{ margin: '0.5rem 0' }} />
 
-        <Typography variant='body1' sx={{ color: green[100] }}>
+        <Typography
+          variant='body1'
+          sx={{ color: appColors.pine, fontWeight: 'bold' }}
+        >
           О деле
         </Typography>
-        <Typography variant='body2' sx={{ color: green[200] }}>
+        <Typography variant='body2' sx={{ color: appColors.pine }}>
           Подарок бесследно исчез. Обстоятельства происшествия неизвестны. Твоя
           задача — установить, что произошло, найти подарок и раскрыть все
           тайны, связанные с этим делом.
@@ -44,10 +54,13 @@ export const Case: FC = () => {
 
         <Divider sx={{ margin: '0.5rem 0' }} />
 
-        <Typography variant='body1' sx={{ color: green[100] }}>
+        <Typography
+          variant='body1'
+          sx={{ color: appColors.pine, fontWeight: 'bold' }}
+        >
           Материалы дела
         </Typography>
-        <Typography variant='body2' sx={{ color: green[200] }}>
+        <Typography variant='body2' sx={{ color: appColors.pine }}>
           - Улики
           <br />
           - Расшифрованные послания
@@ -60,10 +73,13 @@ export const Case: FC = () => {
 
         <Divider sx={{ margin: '0.5rem 0' }} />
 
-        <Typography variant='body1' sx={{ color: green[100] }}>
+        <Typography
+          variant='body1'
+          sx={{ color: appColors.pine, fontWeight: 'bold' }}
+        >
           Цель расследования
         </Typography>
-        <Typography variant='body2' sx={{ color: green[200] }}>
+        <Typography variant='body2' sx={{ color: appColors.pine }}>
           - Найти пропавший подарок
           <br />
           - Установить обстоятельства исчезновения
@@ -72,10 +88,13 @@ export const Case: FC = () => {
 
         <Divider sx={{ margin: '0.5rem 0' }} />
 
-        <Typography variant='body1' sx={{ color: green[100] }}>
+        <Typography
+          variant='body1'
+          sx={{ color: appColors.pine, fontWeight: 'bold' }}
+        >
           Текущий прогресс
         </Typography>
-        <Typography variant='body2' sx={{ color: green[200] }}>
+        <Typography variant='body2' sx={{ color: appColors.pine }}>
           Расследование начато.
           <br />
           Новые материалы будут появляться по мере раскрытия дела.

@@ -7,13 +7,14 @@ import {
   DialogContentText,
   DialogTitle,
   Fab,
+  Stack,
   TextField,
 } from '@mui/material';
-import { green } from '@mui/material/colors';
 import { useState, type FC } from 'react';
 
 import { useGame } from '~/app/context/GameContext';
 
+import { appColors } from '~/shared/colors';
 import { CLUE_SOLVED_KEY } from '~/shared/types';
 
 export const InputClueButton: FC = () => {
@@ -62,11 +63,11 @@ export const InputClueButton: FC = () => {
           position: 'fixed',
           bottom: '8rem',
           right: '2rem',
-          color: green[700],
-          backgroundColor: green[200],
+          color: appColors.pine,
+          backgroundColor: appColors.sage,
 
           '&:hover': {
-            backgroundColor: green[200],
+            backgroundColor: appColors.sage,
           },
         }}
         onClick={() => setOpen(true)}
@@ -75,38 +76,52 @@ export const InputClueButton: FC = () => {
       </Fab>
 
       <Dialog open={open} onClose={() => setOpen(false)}>
-        <DialogTitle>Новая улика</DialogTitle>
+        <Stack
+          sx={{
+            backgroundColor: appColors.sage,
+            color: appColors.pine,
+          }}
+        >
+          <DialogTitle>Новая улика</DialogTitle>
 
-        <DialogContent>
-          <DialogContentText>
-            Вы расшифровали послание. Введите полученный текст, чтобы добавить
-            улику в материалы дела.
-          </DialogContentText>
+          <DialogContent>
+            <DialogContentText>
+              Вы расшифровали послание. Введите полученный текст, чтобы добавить
+              улику в материалы дела.
+            </DialogContentText>
 
-          <form onSubmit={handleInputClue} id='clue-form'>
-            <TextField
-              autoFocus
-              fullWidth
-              required
-              autoComplete='off'
-              color='success'
-              id='clue'
-              name='clue'
-              label='Расшифрованная улика'
-              type='text'
-              variant='standard'
-            />
-          </form>
-        </DialogContent>
+            <form onSubmit={handleInputClue} id='clue-form'>
+              <TextField
+                autoFocus
+                fullWidth
+                required
+                autoComplete='off'
+                color='success'
+                id='clue'
+                name='clue'
+                label='Расшифрованная улика'
+                type='text'
+                variant='standard'
+              />
+            </form>
+          </DialogContent>
 
-        <DialogActions>
-          <Button sx={{ color: green[800] }} onClick={() => setOpen(false)}>
-            Отмена
-          </Button>
-          <Button sx={{ color: green[800] }} type='submit' form='clue-form'>
-            Добавить улику
-          </Button>
-        </DialogActions>
+          <DialogActions>
+            <Button
+              sx={{ color: appColors.pine }}
+              onClick={() => setOpen(false)}
+            >
+              Отмена
+            </Button>
+            <Button
+              sx={{ color: appColors.pine }}
+              type='submit'
+              form='clue-form'
+            >
+              Добавить улику
+            </Button>
+          </DialogActions>
+        </Stack>
       </Dialog>
     </>
   );
