@@ -102,8 +102,7 @@ export const InputClueButton: FC = () => {
 
           <DialogContent>
             <DialogContentText>
-              Вы расшифровали послание. Введите полученный текст, чтобы добавить
-              улику в материалы дела.
+              Передайте полученный текст следствию для анализа.
             </DialogContentText>
 
             <form onSubmit={handleInputClue} id='clue-form'>
@@ -148,8 +147,8 @@ export const InputClueButton: FC = () => {
         anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
         message={
           isCorrectClue
-            ? 'Удалось проанализировать! Вы получили новое сообщение'
-            : 'Не удалось проанализировать'
+            ? 'Анализ завершён! Получено новое сообщение'
+            : 'Следствию не удалось установить связь с делом'
         }
       />
     </>
