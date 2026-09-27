@@ -4,6 +4,8 @@ import { Email, FolderCopy, Person } from '@mui/icons-material';
 import { Badge, Stack, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { useLocation, useNavigate } from 'react-router';
 
+import { useGame } from '~/app/context/GameContext';
+
 import { appColors } from '~/shared/colors';
 import { ROUTE_PATH } from '~/shared/types';
 
@@ -28,6 +30,10 @@ const buttonSx = {
 export const ButtonGroup: FC = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const { gameState } = useGame();
+
+  const { lockedEmails, unReadEmails } = gameState;
+  const showBadge = lockedEmails.length === unReadEmails.length;
 
   return (
     <ToggleButtonGroup
@@ -60,7 +66,8 @@ export const ButtonGroup: FC = () => {
       >
         <ToggleButton value={ROUTE_PATH.MAIN}>
           <Badge
-            // badgeContent={true}
+            invisible={showBadge}
+            badgeContent={showBadge}
             sx={{
               '& .MuiBadge-badge': {
                 backgroundColor: appColors.moss,
