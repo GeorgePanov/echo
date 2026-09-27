@@ -1,9 +1,9 @@
 import { ArrowBack } from '@mui/icons-material';
 import { SwipeableDrawer, Stack, Typography, IconButton } from '@mui/material';
-import { green } from '@mui/material/colors';
 import { type FC } from 'react';
 
 import { mocksEmails } from '~/shared/api/mocksEmails';
+import { appColors } from '~/shared/colors';
 import type { emailType } from '~/shared/types';
 
 type DrawerProps = {
@@ -27,7 +27,7 @@ export const SelectedEmailDrawer: FC<DrawerProps> = (props) => {
       slotProps={{
         paper: {
           sx: {
-            backgroundColor: green[900],
+            backgroundColor: appColors.pine,
             width: '100%',
             maxWidth: '40rem',
           },
@@ -48,20 +48,20 @@ export const SelectedEmailDrawer: FC<DrawerProps> = (props) => {
             size='large'
             onClick={() => setOpen(false)}
             sx={{
-              backgroundColor: green[100],
-              color: green[900],
+              backgroundColor: appColors.sage,
+              color: appColors.pine,
             }}
           >
             <ArrowBack />
           </IconButton>
 
-          <Typography sx={{ color: green[100] }} variant='h5'>
+          <Typography sx={{ color: appColors.sage }} variant='h5'>
             {title}
           </Typography>
         </Stack>
 
         <Typography
-          sx={{ color: green[200] }}
+          sx={{ color: appColors.sage }}
           variant='body2'
           color='text.secondary'
         >
@@ -69,7 +69,7 @@ export const SelectedEmailDrawer: FC<DrawerProps> = (props) => {
         </Typography>
 
         <Typography
-          sx={{ color: green[200], whiteSpace: 'pre-line' }}
+          sx={{ color: appColors.sage, whiteSpace: 'pre-line' }}
           variant='body1'
         >
           {message}

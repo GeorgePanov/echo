@@ -2,9 +2,11 @@ import type { FC } from 'react';
 
 import { Email, FolderCopy, Person } from '@mui/icons-material';
 import { Badge, Stack, ToggleButton, ToggleButtonGroup } from '@mui/material';
-import { green } from '@mui/material/colors';
 import { useLocation, useNavigate } from 'react-router';
 
+import { useGame } from '~/app/context/GameContext';
+
+import { appColors } from '~/shared/colors';
 import { ROUTE_PATH } from '~/shared/types';
 
 const buttonSx = {
@@ -13,20 +15,25 @@ const buttonSx = {
   minWidth: 100,
   minHeight: 50,
   transition: 'all 0.3s ease',
+  color: appColors.sage,
 
   '&.Mui-selected': {
-    backgroundColor: green[800],
-    color: green[100],
+    backgroundColor: appColors.sage,
+    color: appColors.pine,
   },
 
   '&.Mui-selected:hover': {
-    backgroundColor: green[800],
+    backgroundColor: appColors.sage,
   },
 };
 
 export const ButtonGroup: FC = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const { gameState } = useGame();
+
+  const { lockedEmails, unReadEmails } = gameState;
+  const showBadge = lockedEmails.length === unReadEmails.length;
 
   return (
     <ToggleButtonGroup
@@ -40,7 +47,9 @@ export const ButtonGroup: FC = () => {
         transform: 'translateX(-50%)',
         borderRadius: '2rem',
 
-        bgcolor: green[700],
+        bgcolor: appColors.pine,
+
+        boxShadow: `0 0 1px 1px ${appColors.moss}80`,
 
         '& .MuiToggleButton-root': buttonSx,
       }}
@@ -57,10 +66,11 @@ export const ButtonGroup: FC = () => {
       >
         <ToggleButton value={ROUTE_PATH.MAIN}>
           <Badge
-            // badgeContent={true}
+            invisible={showBadge}
+            badgeContent={showBadge}
             sx={{
               '& .MuiBadge-badge': {
-                backgroundColor: green[400],
+                backgroundColor: appColors.moss,
               },
             }}
           >

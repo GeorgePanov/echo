@@ -8,9 +8,10 @@ import {
   ListItemText,
   Typography,
   Box,
+  Stack,
 } from '@mui/material';
-import { green } from '@mui/material/colors';
 
+import { appColors } from '~/shared/colors';
 import { stringAvatar } from '~/shared/stringAvatar';
 import type { emailType } from '~/shared/types';
 
@@ -24,14 +25,14 @@ export const EmailItem: FC<EmailItemProps> = (props) => {
   const { emailId, isRead, author, title, message } = email;
 
   return (
-    <ListItem key={title} disablePadding>
+    <ListItem disablePadding>
       <ListItemButton
         sx={{
           borderRadius: '1rem',
-          backgroundColor: green[800],
+          backgroundColor: appColors.sage,
 
           '&:hover': {
-            backgroundColor: green[800],
+            backgroundColor: appColors.sage,
           },
         }}
         onClick={() => handleSelectEmail(emailId)}
@@ -43,20 +44,26 @@ export const EmailItem: FC<EmailItemProps> = (props) => {
         <ListItemText
           disableTypography
           primary={
-            <Typography sx={{ color: green[100] }} noWrap>
+            <Typography
+              sx={{
+                fontWeight: 'bold',
+                color: appColors.pine,
+              }}
+              noWrap
+            >
               {author}
             </Typography>
           }
           secondary={
-            <>
-              <Typography sx={{ color: green[200] }} variant='body2' noWrap>
+            <Stack sx={{ color: appColors.pine }}>
+              <Typography variant='body2' noWrap>
                 {title}
               </Typography>
 
-              <Typography sx={{ color: green[200] }} variant='body2' noWrap>
+              <Typography variant='body2' noWrap>
                 {message}
               </Typography>
-            </>
+            </Stack>
           }
         />
 
@@ -66,7 +73,7 @@ export const EmailItem: FC<EmailItemProps> = (props) => {
             width: 8,
             height: 8,
             borderRadius: '50%',
-            ...(!isRead && { bgcolor: green[100] }),
+            ...(!isRead && { bgcolor: appColors.nightForest }),
             flexShrink: 0,
           }}
         />

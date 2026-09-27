@@ -19,7 +19,11 @@ export const EmailList: FC<EmailListProps> = (props) => {
   return (
     <List sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
       {filteredEmails.map((email) => (
-        <EmailItem email={email} handleSelectEmail={handleSelectEmail} />
+        <EmailItem
+          key={email.emailId}
+          email={email}
+          handleSelectEmail={handleSelectEmail}
+        />
       ))}
     </List>
   );
