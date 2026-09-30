@@ -20,6 +20,7 @@ type GameContextType = {
   unlockEmail: (emailId: number) => void;
   markEmailAsRead: (emailId: number) => void;
   resetGame: () => void;
+  openAllClue: () => void;
 };
 
 const STORAGE_KEY = 'detective-game';
@@ -69,6 +70,13 @@ export const GameProvider: FC<{ children: ReactNode }> = ({ children }) => {
     setGameState(initialGameState);
   };
 
+  const openAllClue = () => {
+    setGameState((prev) => ({
+      ...prev,
+      lockedEmails: [],
+    }));
+  };
+
   return (
     <GameContext.Provider
       value={{
@@ -76,6 +84,7 @@ export const GameProvider: FC<{ children: ReactNode }> = ({ children }) => {
         unlockEmail,
         markEmailAsRead,
         resetGame,
+        openAllClue,
       }}
     >
       {children}

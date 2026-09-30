@@ -40,7 +40,7 @@ export const InputClueButton: FC = () => {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [isCorrectClue, setIsCorrectClue] = useState(false);
 
-  const { unlockEmail, resetGame } = useGame();
+  const { unlockEmail, resetGame, openAllClue } = useGame();
 
   const handleInputClue = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -51,6 +51,12 @@ export const InputClueButton: FC = () => {
 
     if (clue === 'reset') {
       resetGame();
+      setDialogOpen(false);
+      return;
+    }
+
+    if (clue === 'clueall') {
+      openAllClue();
       setDialogOpen(false);
       return;
     }
