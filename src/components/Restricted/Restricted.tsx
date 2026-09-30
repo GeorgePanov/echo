@@ -17,7 +17,7 @@ export const Restricted: FC = () => {
           alignItems: 'center',
           justifyContent: 'center',
           textAlign: 'center',
-          color: appColors.sage,
+          color: appColors.secondary,
         }}
       >
         <LockClock sx={{ fontSize: '5rem' }} />

@@ -15,15 +15,15 @@ const buttonSx = {
   minWidth: 100,
   minHeight: 50,
   transition: 'all 0.3s ease',
-  color: appColors.sage,
+  color: appColors.secondary,
 
   '&.Mui-selected': {
-    backgroundColor: appColors.sage,
-    color: appColors.pine,
+    backgroundColor: appColors.secondary,
+    color: appColors.primary,
   },
 
   '&.Mui-selected:hover': {
-    backgroundColor: appColors.sage,
+    backgroundColor: appColors.secondary,
   },
 };
 
@@ -47,9 +47,9 @@ export const ButtonGroup: FC = () => {
         transform: 'translateX(-50%)',
         borderRadius: '2rem',
 
-        bgcolor: appColors.pine,
+        bgcolor: appColors.primary,
 
-        boxShadow: `0 0 1px 1px ${appColors.moss}80`,
+        boxShadow: `0 0 1px 1px ${appColors.tertiary}80`,
 
         '& .MuiToggleButton-root': buttonSx,
       }}
@@ -70,7 +70,7 @@ export const ButtonGroup: FC = () => {
             badgeContent={showBadge}
             sx={{
               '& .MuiBadge-badge': {
-                backgroundColor: appColors.moss,
+                backgroundColor: appColors.tertiary,
               },
             }}
           >

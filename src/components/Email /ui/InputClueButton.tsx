@@ -79,11 +79,11 @@ export const InputClueButton: FC = () => {
           position: 'fixed',
           bottom: '8rem',
           right: '2rem',
-          color: appColors.pine,
-          backgroundColor: appColors.sage,
+          color: appColors.primary,
+          backgroundColor: appColors.secondary,
 
           '&:hover': {
-            backgroundColor: appColors.sage,
+            backgroundColor: appColors.secondary,
           },
         }}
         onClick={() => setDialogOpen(true)}
@@ -94,8 +94,8 @@ export const InputClueButton: FC = () => {
       <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)}>
         <Stack
           sx={{
-            backgroundColor: appColors.sage,
-            color: appColors.pine,
+            backgroundColor: appColors.secondary,
+            color: appColors.primary,
           }}
         >
           <DialogTitle>Новая улика</DialogTitle>
@@ -123,14 +123,14 @@ export const InputClueButton: FC = () => {
 
           <DialogActions>
             <Button
-              sx={{ color: appColors.pine }}
+              sx={{ color: appColors.primary }}
               onClick={() => setDialogOpen(false)}
             >
               Отмена
             </Button>
 
             <Button
-              sx={{ color: appColors.pine }}
+              sx={{ color: appColors.primary }}
               type='submit'
               form='clue-form'
             >

@@ -16,7 +16,7 @@ export const incantoColors = {
 };
 
 export const appColors = {
-  sage: incantoColors.nude, // secondary
-  moss: incantoColors.caramel, // tertiary
-  pine: incantoColors.bordeaux, // primary
+  primary: incantoColors.bordeaux,
+  secondary: incantoColors.nude,
+  tertiary: incantoColors.caramel,
 };

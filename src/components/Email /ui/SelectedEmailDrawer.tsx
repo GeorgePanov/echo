@@ -27,7 +27,7 @@ export const SelectedEmailDrawer: FC<DrawerProps> = (props) => {
       slotProps={{
         paper: {
           sx: {
-            backgroundColor: appColors.pine,
+            backgroundColor: appColors.primary,
             width: '100%',
             maxWidth: '40rem',
           },
@@ -48,20 +48,20 @@ export const SelectedEmailDrawer: FC<DrawerProps> = (props) => {
             size='large'
             onClick={() => setOpen(false)}
             sx={{
-              backgroundColor: appColors.sage,
-              color: appColors.pine,
+              backgroundColor: appColors.secondary,
+              color: appColors.primary,
             }}
           >
             <ArrowBack />
           </IconButton>
 
-          <Typography sx={{ color: appColors.sage }} variant='h5'>
+          <Typography sx={{ color: appColors.secondary }} variant='h5'>
             {title}
           </Typography>
         </Stack>
 
         <Typography
-          sx={{ color: appColors.sage }}
+          sx={{ color: appColors.secondary }}
           variant='body2'
           color='text.secondary'
         >
@@ -69,7 +69,7 @@ export const SelectedEmailDrawer: FC<DrawerProps> = (props) => {
         </Typography>
 
         <Typography
-          sx={{ color: appColors.sage, whiteSpace: 'pre-line' }}
+          sx={{ color: appColors.secondary, whiteSpace: 'pre-line' }}
           variant='body1'
         >
           {message}

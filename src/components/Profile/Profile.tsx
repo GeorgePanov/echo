@@ -10,10 +10,10 @@ export const Profile: FC = () => {
     <Stack spacing={2}>
       {/* Детектив */}
       <Stack spacing={1}>
-        <Typography sx={{ color: appColors.sage }} variant='h4'>
+        <Typography sx={{ color: appColors.secondary }} variant='h4'>
           Детектив
         </Typography>
-        <Typography sx={{ color: appColors.sage }} variant='body1'>
+        <Typography sx={{ color: appColors.secondary }} variant='body1'>
           Главный следователь
         </Typography>
       </Stack>
@@ -21,9 +21,9 @@ export const Profile: FC = () => {
       <Stack
         sx={{
           padding: '1rem',
-          backgroundColor: appColors.sage,
+          backgroundColor: appColors.secondary,
           borderRadius: '1rem',
-          color: appColors.pine,
+          color: appColors.primary,
         }}
       >
         <Box sx={{ m: '1rem 0', display: 'flex', justifyContent: 'center' }}>
@@ -82,10 +82,10 @@ export const Profile: FC = () => {
 
       {/* Дело */}
       <Stack spacing={1}>
-        <Typography sx={{ color: appColors.sage }} variant='h4'>
+        <Typography sx={{ color: appColors.secondary }} variant='h4'>
           Текущее дело
         </Typography>
-        <Typography sx={{ color: appColors.sage }} variant='body1'>
+        <Typography sx={{ color: appColors.secondary }} variant='body1'>
           № 03/10
         </Typography>
       </Stack>
@@ -93,9 +93,9 @@ export const Profile: FC = () => {
       <Stack
         sx={{
           padding: '1rem',
-          backgroundColor: appColors.sage,
+          backgroundColor: appColors.secondary,
           borderRadius: '1rem',
-          color: appColors.pine,
+          color: appColors.primary,
         }}
       >
         <Typography variant='body1' sx={{ fontWeight: 'bold' }}>
