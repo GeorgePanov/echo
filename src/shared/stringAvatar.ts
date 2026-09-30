@@ -22,8 +22,8 @@ export function stringAvatar(name: string) {
   return {
     sx: {
       // bgcolor: stringToColor(name),
-      backgroundColor: appColors.pine,
-      color: appColors.sage,
+      backgroundColor: appColors.primary,
+      color: appColors.secondary,
     },
     children: `${name.split(' ')[0][0]}`,
   };

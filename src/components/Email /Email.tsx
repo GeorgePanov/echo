@@ -40,7 +40,7 @@ export const Email: FC = () => {
 
   return (
     <Stack>
-      <Stack spacing={1} sx={{ color: appColors.sage }}>
+      <Stack spacing={1} sx={{ color: appColors.secondary }}>
         <Typography variant='h4'>Почта</Typography>
         <Typography variant='body1'>Входящие</Typography>
       </Stack>
