@@ -13,6 +13,7 @@ import type { emailType } from '~/shared/types';
 type GameState = {
   lockedEmails: emailType['emailId'][];
   unReadEmails: emailType['emailId'][];
+  isSecretGiftOpen?: boolean;
 };
 
 type GameContextType = {
@@ -21,6 +22,7 @@ type GameContextType = {
   markEmailAsRead: (emailId: number) => void;
   resetGame: () => void;
   openAllClue: () => void;
+  openSecretGift: () => void;
 };
 
 const STORAGE_KEY = 'detective-game';
@@ -77,6 +79,13 @@ export const GameProvider: FC<{ children: ReactNode }> = ({ children }) => {
     }));
   };
 
+  const openSecretGift = () => {
+    setGameState((prev) => ({
+      ...prev,
+      isSecretGiftOpen: true,
+    }));
+  };
+
   return (
     <GameContext.Provider
       value={{
@@ -85,6 +94,7 @@ export const GameProvider: FC<{ children: ReactNode }> = ({ children }) => {
         markEmailAsRead,
         resetGame,
         openAllClue,
+        openSecretGift,
       }}
     >
       {children}
