@@ -34,7 +34,7 @@ export const Restricted: FC = () => {
   }
 
   return (
-    <Stack spacing={'1rem'} sx={{ color: incantoColors.background }}>
+    <Stack spacing={'1rem'} sx={{ color: incantoColors.cream }}>
       <Typography variant='body1'>
         Догорая,
         <br />
@@ -55,8 +55,8 @@ export const Restricted: FC = () => {
           justifyContent: 'center',
           alignItems: 'center',
 
-          backgroundColor: incantoColors.surface,
-          color: incantoColors.accent,
+          backgroundColor: incantoColors.nude,
+          color: incantoColors.blush,
         }}
       >
         <Typography

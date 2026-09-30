@@ -73,7 +73,7 @@ export const EmailItem: FC<EmailItemProps> = (props) => {
             width: 8,
             height: 8,
             borderRadius: '50%',
-            ...(!isRead && { bgcolor: appColors.nightForest }),
+            ...(!isRead && { bgcolor: appColors.moss }),
             flexShrink: 0,
           }}
         />
