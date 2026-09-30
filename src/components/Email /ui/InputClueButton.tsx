@@ -111,12 +111,25 @@ export const InputClueButton: FC = () => {
                 fullWidth
                 required
                 autoComplete='off'
-                color='success'
                 id='clue'
                 name='clue'
                 label='Расшифрованная улика'
                 type='text'
                 variant='standard'
+                sx={{
+                  '& .MuiInput-root': {
+                    // цвет подчёркивания при фокусе
+                    '&:after': {
+                      borderBottomColor: appColors.primary,
+                    },
+                  },
+                  // цвет лейбла (в том числе в фокусе)
+                  '& .MuiInputLabel-standard': {
+                    '&.Mui-focused': {
+                      color: appColors.primary,
+                    },
+                  },
+                }}
               />
             </form>
           </DialogContent>
