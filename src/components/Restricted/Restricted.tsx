@@ -1,12 +1,21 @@
 import type { FC } from 'react';
 
 import { LockClock } from '@mui/icons-material';
+import FiberPinIcon from '@mui/icons-material/FiberPin';
 import { Stack, Typography } from '@mui/material';
+
+import { useGame } from '~/app/context/GameContext';
 
 import { appColors, incantoColors } from '~/shared/colors';
 
+import { Barcode } from './ui/Barcode';
+
 export const Restricted: FC = () => {
   const isRestricted = new Date() < new Date('2026-10-03T09:00:00');
+
+  const {
+    gameState: { isSecretGiftOpen },
+  } = useGame();
 
   if (isRestricted) {
     return (
@@ -29,6 +38,25 @@ export const Restricted: FC = () => {
           <br />
           <strong>09:00 03.10.2026</strong>
         </Typography>
+      </Stack>
+    );
+  }
+
+  if (!isSecretGiftOpen) {
+    return (
+      <Stack
+        spacing={2}
+        sx={{
+          minHeight: '70vh',
+          alignItems: 'center',
+          justifyContent: 'center',
+          textAlign: 'center',
+          color: appColors.secondary,
+        }}
+      >
+        <FiberPinIcon sx={{ fontSize: '5rem' }} />
+
+        <Typography variant='h5'>Введите кодовое слово</Typography>
       </Stack>
     );
   }
@@ -69,9 +97,13 @@ export const Restricted: FC = () => {
         >
           INCANTO
         </Typography>
+
+        <Typography variant='body2'>Сертификат номиналом 10 000 р</Typography>
       </Stack>
 
-      <Typography variant='body2'>Сертификат номиналом 10 000 р.</Typography>
+      <Stack sx={{ overflow: 'hidden', borderRadius: '1rem' }}>
+        <Barcode />
+      </Stack>
     </Stack>
   );
 };
