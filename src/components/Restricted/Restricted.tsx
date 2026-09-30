@@ -5,6 +5,8 @@ import { Stack, Typography } from '@mui/material';
 
 import { appColors, incantoColors } from '~/shared/colors';
 
+import { Barcode } from './ui/Barcode';
+
 export const Restricted: FC = () => {
   const isRestricted = new Date() < new Date('2026-10-03T09:00:00');
 
@@ -69,9 +71,13 @@ export const Restricted: FC = () => {
         >
           INCANTO
         </Typography>
+
+        <Typography variant='body2'>Сертификат номиналом 10 000 р</Typography>
       </Stack>
 
-      <Typography variant='body2'>Сертификат номиналом 10 000 р.</Typography>
+      <Stack sx={{ overflow: 'hidden', borderRadius: '1rem' }}>
+        <Barcode />
+      </Stack>
     </Stack>
   );
 };
