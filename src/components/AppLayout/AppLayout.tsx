@@ -14,13 +14,13 @@ export const AppLayout: React.FC = () => {
         maxWidth: '600px',
         display: 'flex',
         justifyContent: 'center',
-        background: appColors.pine,
+        background: appColors.primary,
       }}
     >
       <Stack sx={{ width: '100%' }}>
         <Typography
           sx={{
-            color: appColors.sage,
+            color: appColors.secondary,
             fontWeight: 'normal',
           }}
           variant='h2'

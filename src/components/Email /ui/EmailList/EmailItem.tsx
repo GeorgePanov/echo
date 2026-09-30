@@ -29,10 +29,10 @@ export const EmailItem: FC<EmailItemProps> = (props) => {
       <ListItemButton
         sx={{
           borderRadius: '1rem',
-          backgroundColor: appColors.sage,
+          backgroundColor: appColors.secondary,
 
           '&:hover': {
-            backgroundColor: appColors.sage,
+            backgroundColor: appColors.secondary,
           },
         }}
         onClick={() => handleSelectEmail(emailId)}
@@ -47,7 +47,7 @@ export const EmailItem: FC<EmailItemProps> = (props) => {
             <Typography
               sx={{
                 fontWeight: 'bold',
-                color: appColors.pine,
+                color: appColors.primary,
               }}
               noWrap
             >
@@ -55,7 +55,7 @@ export const EmailItem: FC<EmailItemProps> = (props) => {
             </Typography>
           }
           secondary={
-            <Stack sx={{ color: appColors.pine }}>
+            <Stack sx={{ color: appColors.primary }}>
               <Typography variant='body2' noWrap>
                 {title}
               </Typography>
@@ -73,7 +73,7 @@ export const EmailItem: FC<EmailItemProps> = (props) => {
             width: 8,
             height: 8,
             borderRadius: '50%',
-            ...(!isRead && { bgcolor: appColors.nightForest }),
+            ...(!isRead && { bgcolor: appColors.tertiary }),
             flexShrink: 0,
           }}
         />

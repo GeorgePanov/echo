@@ -40,7 +40,7 @@ export const InputClueButton: FC = () => {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [isCorrectClue, setIsCorrectClue] = useState(false);
 
-  const { unlockEmail, resetGame } = useGame();
+  const { unlockEmail, resetGame, openAllClue } = useGame();
 
   const handleInputClue = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -51,6 +51,12 @@ export const InputClueButton: FC = () => {
 
     if (clue === 'reset') {
       resetGame();
+      setDialogOpen(false);
+      return;
+    }
+
+    if (clue === 'clueall') {
+      openAllClue();
       setDialogOpen(false);
       return;
     }
@@ -79,11 +85,11 @@ export const InputClueButton: FC = () => {
           position: 'fixed',
           bottom: '8rem',
           right: '2rem',
-          color: appColors.pine,
-          backgroundColor: appColors.sage,
+          color: appColors.primary,
+          backgroundColor: appColors.secondary,
 
           '&:hover': {
-            backgroundColor: appColors.sage,
+            backgroundColor: appColors.secondary,
           },
         }}
         onClick={() => setDialogOpen(true)}
@@ -94,8 +100,8 @@ export const InputClueButton: FC = () => {
       <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)}>
         <Stack
           sx={{
-            backgroundColor: appColors.sage,
-            color: appColors.pine,
+            backgroundColor: appColors.secondary,
+            color: appColors.primary,
           }}
         >
           <DialogTitle>Новая улика</DialogTitle>
@@ -111,26 +117,39 @@ export const InputClueButton: FC = () => {
                 fullWidth
                 required
                 autoComplete='off'
-                color='success'
                 id='clue'
                 name='clue'
                 label='Расшифрованная улика'
                 type='text'
                 variant='standard'
+                sx={{
+                  '& .MuiInput-root': {
+                    // цвет подчёркивания при фокусе
+                    '&:after': {
+                      borderBottomColor: appColors.primary,
+                    },
+                  },
+                  // цвет лейбла (в том числе в фокусе)
+                  '& .MuiInputLabel-standard': {
+                    '&.Mui-focused': {
+                      color: appColors.primary,
+                    },
+                  },
+                }}
               />
             </form>
           </DialogContent>
 
           <DialogActions>
             <Button
-              sx={{ color: appColors.pine }}
+              sx={{ color: appColors.primary }}
               onClick={() => setDialogOpen(false)}
             >
               Отмена
             </Button>
 
             <Button
-              sx={{ color: appColors.pine }}
+              sx={{ color: appColors.primary }}
               type='submit'
               form='clue-form'
             >
